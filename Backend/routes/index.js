@@ -1,12 +1,14 @@
 import { Router } from "express";
-import authRoutes from './authRoute.js'
-import userRoutes from './userRoute.js'
-import postRoutes from './postRoute.js'
+import authRoute from './authRoute.js'
+import userRoute from './userRoute.js'
+import postRoute from './postRoute.js'
+import notificationRoute from './notificationRoute.js'
 
 const Routes = Router()
 
-Routes.use('/auth',authRoutes)
-Routes.use('/user',userRoutes)
-Routes.use('/post',postRoutes)
+Routes.use('/auth',authRoute)
+Routes.use('/user',userRoute)
+Routes.use('/post',postRoute)
+Routes.use('/notification',notificationRoute)
 
 export default Routes
