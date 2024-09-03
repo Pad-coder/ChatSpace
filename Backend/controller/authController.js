@@ -72,6 +72,7 @@ const login = async(req,res)=>{
             
            let token = jwt.createToken(user._id,res)
            res.status(200).send({message:"User logged in successfully",
+            _id:user._id,
             name:user.name,
             username:user.username,
             email:user.email,

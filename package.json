@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "Backend/server.js",
   "scripts": {
-   "dev": "nodemon Backend/server.js",
-   "start": "node Backend/server.js"
+    "dev": "nodemon Backend/server.js",
+    "start": "node Backend/server.js"
   },
   "keywords": [],
   "type": "module",
