@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import 'dotenv/config.js'
 
 const createToken = (userId,res)=>{
- const token = jwt.sign({userId},process.env.SECRET_KEY,{expiresIn:'1h'})
+ const token = jwt.sign({userId},process.env.SECRET_KEY,{expiresIn:'1d'})
 
         res.cookie('jwt', token, {
                 httpOnly: true,

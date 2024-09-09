@@ -55,7 +55,6 @@ const userShema = new mongoose.Schema({
 
 },{
         timestamps: true,
-        versionKey: false,
         collection: "User"
     })
 

@@ -21,8 +21,7 @@ const notificationSchema = new mongoose.Schema({
     }
 },{
     timestamps: true,
-    collection: 'Notification',
-    versionKey: false
+    collection: 'Notification'
 })
 
 export default new mongoose.model("Notification",notificationSchema)

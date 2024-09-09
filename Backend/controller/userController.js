@@ -5,7 +5,7 @@ import cloudinary from "../cloud/cloudinaryConfig.js";
 
 
 const getUserProfile = async(req,res)=>{
-    const {username} = req.params
+    const {username} = req.params;
     console.log(username)
     try{
         const user = await userModel.findOne({username}).select("-password")
@@ -29,7 +29,6 @@ const getSuggestedUser = async(req,res)=>{
         const user = await userModel.aggregate([
             {
                 $match: { _id: { $ne: userId } },
-
             },
             {
                 $sample:{size: 10}
@@ -152,9 +151,23 @@ const updateUserProfile = async(req,res)=>{
             });
     }
 }
+
+const getUserForSidebar = async(req,res)=>{
+    try {
+        const loggedInUserId = req.user._id;
+
+        const fillteredUsers = await userModel.find({_id: {$ne: loggedInUserId}}).select("-password")
+        res.status(200).json(fillteredUsers)
+        
+    } catch (error) {
+        
+    }
+}
+
 export default {
     getUserProfile,
     getSuggestedUser,
     followUnFollowUser,
-    updateUserProfile
+    updateUserProfile,
+    getUserForSidebar
 }

@@ -32,8 +32,7 @@ const postSchema = mongoose.Schema({
         
 },{
     timestamps: true,
-    collection: 'Posts',
-    versionKey: false
+    collection: 'Posts'
 })
 
 
