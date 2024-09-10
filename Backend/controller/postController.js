@@ -15,11 +15,11 @@ const createPost = async (req,res)=>{
         if(!user) return res.status(404).json({message: "User not found"});
 
         if(!text && !img){
-            return res.status(400).json({message: "Please provide either text or image"})
+            return res.status(400).json({error: "Please provide either text or image"})
         }
             if(img){
                 const uploadedImg = await cloudinary.uploader.upload(img);
-                img = uploadedImg.secure_url
+                img = uploadedImg.secure_url;
             }
 
         const newPost = new postModel({
@@ -29,11 +29,11 @@ const createPost = async (req,res)=>{
         })
 
         await newPost.save()
-        res.status(201).json({message: "Post created successfully",newPost})
+        res.status(201).json(newPost)
     }catch(error){
         console.log("Error in Create post controller", error.message);
-        res.status(500).send({
-            message: error.message || 'Internal Server Error'
+        res.status(500).json({
+            error: 'Internal Server Error'
             });
     }
 }
@@ -42,9 +42,9 @@ const deletePost = async (req,res)=>{
     try{
         const post = await postModel.findById(req.params.id);
         if(!post)
-            return res.status(404).json({message: "Post not found"});
+            return res.status(404).json({error: "Post not found"});
         if(post.user.toString() !== req.user._id.toString())
-            return res.status(403).json({message: "You are not authorized to delete this post"});
+            return res.status(403).json({error: "You are not authorized to delete this post"});
         if(post.img){
             await cloudinary.uploader.destroy(post.img.split("/").pop().split('.')[0]);
         }
@@ -54,7 +54,7 @@ const deletePost = async (req,res)=>{
     }catch(error){
         console.log("Error in Delete Post Controller : ", error);
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+            error: 'Internal Server Error'
         })
     }
 }
@@ -66,11 +66,11 @@ const commentPost = async(req,res)=>{
         const userId = req.user._id.toString();
 
         if(!text){
-            return res.status(400).json({message: "Please enter a comment"});
+            return res.status(400).json({error: "Please enter a comment"});
         }
         const post = await postModel.findById(postId)
         if(!post){
-            return res.status(404).json({message: "Post not found"});
+            return res.status(404).json({error: "Post not found"});
         }
 
         const comment = {user:userId, text};
@@ -89,7 +89,7 @@ const commentPost = async(req,res)=>{
     }catch(error){
         console.log("Error in Comment Post Controller : ", error);
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+            error: 'Internal Server Error'
         })
     }
 }
@@ -102,7 +102,7 @@ const likeUnlikePost = async(req,res)=>{
         const post = await postModel.findById(postId);
 
         if(!post){
-            return res.status(404).json({message: "Post not found"});
+            return res.status(404).json({error: "Post not found"});
         }
 
         const isLikedPost = post.likes.includes(userId)
@@ -133,7 +133,7 @@ const likeUnlikePost = async(req,res)=>{
     }catch(error){
         console.log("Error in Like Unlike Post Controller : ", error);
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+            error: 'Internal Server Error'
         })
     }
 }
@@ -157,7 +157,7 @@ const getAllPost = async(req,res)=>{
     }catch(error){
         console.log("Error in Get All Post Controller : ", error);
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+            error:'Internal Server Error'
             })
     }
 }
@@ -167,7 +167,7 @@ const getLikedPosts = async(req,res)=>{
     try{
         const user = await userModel.findById(userId)
         if(!user)
-            return res.status(404).send({message: "User not found"})
+            return res.status(404).send({error: "User not found"})
         const likedPosts = await postModel.find({_id:{$in: user.likedPosts}})
         .populate({
             path: 'user',
@@ -182,7 +182,7 @@ const getLikedPosts = async(req,res)=>{
     }catch(error){
         console.log("Error in Get Liked Posts Controller");
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+            error: 'Internal Server Error'
             })
     }
 }
@@ -210,7 +210,7 @@ const getFollowingPosts = async(req,res)=>{
     }catch(error){
         console.log("Error in Get Following Posts Controller");
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+           error:'Internal Server Error'
             })
     }
 }
@@ -237,11 +237,10 @@ const getUserPosts = async (req,res) =>{
     }catch(error){
         console.log("Error in Get User Posts Controller");
         res.status(500).send({
-            message: error.message || 'Internal Server Error'
+            error:'Internal Server Error'
         })      
     }
 }
-
 
 export default {
     createPost,
