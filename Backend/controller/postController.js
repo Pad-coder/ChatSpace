@@ -43,11 +43,14 @@ const deletePost = async (req,res)=>{
         const post = await postModel.findById(req.params.id);
         if(!post)
             return res.status(404).json({error: "Post not found"});
+
         if(post.user.toString() !== req.user._id.toString())
             return res.status(403).json({error: "You are not authorized to delete this post"});
+
         if(post.img){
             await cloudinary.uploader.destroy(post.img.split("/").pop().split('.')[0]);
         }
+
         await postModel.findByIdAndDelete(req.params.id);
 
         res.status(200).json({message: "Post deleted successfully"})
@@ -112,7 +115,9 @@ const likeUnlikePost = async(req,res)=>{
             await postModel.updateOne({_id:postId},{$pull:{likes:userId}})
             await userModel.updateOne({_id:userId},{$pull:{likedPosts: postId}})
 
-            res.status(200).json({message:"Post unliked successfully"})
+            const updatedLikes = post.likes.filter((id)=> id.toString() !== userId.toString())
+
+            res.status(200).json(updatedLikes)
         }else{
             //Like the post
             post.likes.push(userId);
@@ -126,8 +131,10 @@ const likeUnlikePost = async(req,res)=>{
                 type: 'like'
             })
             await notification.save();
+
+            const updatedLikes = post.likes
+            res.status(200).json(updatedLikes)
         }
-            res.status(200).json({message:"Post liked successfully"})
         }
 
     }catch(error){
