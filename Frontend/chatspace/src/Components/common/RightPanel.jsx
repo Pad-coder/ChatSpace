@@ -9,7 +9,7 @@ const RightPanel = () => {
 		queryKey: ['suggestedUser'],
 		queryFn: async () => {
 			try {
-				const res = await fetch('api/user/suggested')
+				const res = await fetch('/api/user/suggested')
 				const data = await res.json()
 				if(!res.ok){
 					throw new Error(data.message)
