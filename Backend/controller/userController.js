@@ -6,7 +6,7 @@ import cloudinary from "../cloud/cloudinaryConfig.js";
 
 const getUserProfile = async(req,res)=>{
     const {username} = req.params;
-    console.log(username)
+   
     try{
         const user = await userModel.findOne({username}).select("-password")
         if(!user){
