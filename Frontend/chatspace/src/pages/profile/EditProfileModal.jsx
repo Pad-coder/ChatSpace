@@ -70,7 +70,7 @@ const EditProfileModal = ({authUser}) => {
 				Edit profile
 			</button>
 			<dialog id='edit_profile_modal' className='modal'>
-				<div className='modal-box border rounded-md border-gray-700 shadow-md'>
+				<div className='modal-box border rounded-lg border-gray-700 shadow-md'>
 					<h3 className='font-bold text-lg my-3'>Update Profile</h3>
 					<form
 						className='flex flex-col gap-4'
@@ -132,14 +132,7 @@ const EditProfileModal = ({authUser}) => {
 								onChange={handleInputChange}
 							/>
 						</div>
-						<input
-							type='text'
-							placeholder='Link'
-							className='flex-1 input border border-gray-700 rounded p-2 input-md'
-							value={formData.link}
-							name='link'
-							onChange={handleInputChange}
-						/>
+						
 						<button className='btn btn-primary rounded-full btn-sm text-white'>
 							{isUpdatingProfile ? "Updating" : "Update" }
 							</button>
