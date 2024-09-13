@@ -11,16 +11,17 @@ import { POSTS } from "../../utils/MongoDb/dummy.js";
 
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoCalendarOutline } from "react-icons/io5";
-import { FaLink } from "react-icons/fa";
+//import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import userUpdateProfile from "../../hooks/useUpdateProfile.jsx";
+
 
 const ProfilePage = () => {
 	
 
 	const [coverImg, setCoverImg] = useState(null);
-	const [profile, setprofile] = useState(null);
+	const [profile, setProfile] = useState(null);
 	const [feedType, setFeedType] = useState("posts");
 
 	const coverImgRef = useRef(null);
@@ -31,7 +32,7 @@ const ProfilePage = () => {
 	const {username} = useParams()
 	const {follow,isPending}=useFollow()
 	const {data:authUser} = useQuery({queryKey:["authUser"]})
-	const queryClient = useQueryClient();
+
 
 	const {data:user,isLoading,refetch,isRefetching} = useQuery({
 		queryKey:["userProfile"],
@@ -49,38 +50,7 @@ const ProfilePage = () => {
 		}
 	})
 
-	const {mutate:updateProfile , isPending:isUpdatingProfile} = useMutation({
-		mutationFn:async()=>{
-			try {
-				const res = await fetch(`/api/user/update`,{
-					method:"POST",
-					headers:{
-						"Content-Type":"application/json"
-					},
-					body:JSON.stringify({
-						coverImg,
-						profile
-					}),
-				})
-				const data = res.json()
-				if(!res.ok) throw new Error(data.error || "Something went wrong");
-				return data;
-			} catch (error) {
-				throw new Error(error.message)
-			}
-		},
-		onSuccess:()=>{
-			toast.success("Profile updated successfully")
-			Promise.all([
-				queryClient.invalidateQueries({queryKey:["authUser"]}),
-				queryClient.invalidateQueries({queryKey:["userProfile"]})
-			])
-
-		},
-		onError:(error)=>{
-			toast.error(error.message)
-		}
-	})
+	const {isUpdatingProfile,updateProfile}= userUpdateProfile()
 
 	const isFollowing = authUser?.following.includes(user?._id);
 	const isMyProfile = authUser._id === user?._id;
@@ -92,7 +62,7 @@ const ProfilePage = () => {
 			const reader = new FileReader();
 			reader.onload = () => {
 				state === "coverImg" && setCoverImg(reader.result);
-				state === "profile" && setprofile(reader.result);
+				state === "profile" && setProfile(reader.result);
 			};
 			reader.readAsDataURL(file);
 		}
@@ -179,8 +149,12 @@ const ProfilePage = () => {
 								{(coverImg || profile) && (
 									<button
 										className='btn btn-primary rounded-full btn-sm text-white px-4 ml-2'
-										onClick={() =>updateProfile()}
-									>
+										onClick={async () =>{
+											await updateProfile({profile,coverImg});
+											setCoverImg(null);
+											setProfile(null);
+										}}
+										>
 										{isUpdatingProfile ? "Updating" : "Update"}
 									</button>
 								)}
