@@ -43,7 +43,7 @@ const NotificationPage = () => {
 			toast.error(error.message)
 		}
 	})
-
+	const {data: authUser} = useQuery({queryKey: ['authUser']})
 	return (
 		<>
 			<div className='flex-[4_4_0] border-l border-r border-gray-700 min-h-screen'>
@@ -69,7 +69,7 @@ const NotificationPage = () => {
 					</div>
 				)}
 				{notifications?.length === 0 && <div className='text-center p-4 font-bold'>No notifications 🤔</div>}
-				{notifications?.map((notification) => (
+				{notifications?.from !== authUser &&  notifications?.map((notification) => (
 					<div className='border-b border-gray-700' key={notification._id}>
 						<div className='flex gap-2 p-4'>
 							{notification.type === "follow" && <FaUser className='w-7 h-7 text-primary' />}
