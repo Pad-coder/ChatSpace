@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast'
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
-import LoadingSpinner from './LoadingSpinner'
+import LoadingSpinner from './LoadingSpinner.jsx'
 import {formatPostDate} from '../../utils/Date/index.js'
 
 const Post = ({ post }) => {

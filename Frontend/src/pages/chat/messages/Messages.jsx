@@ -1,6 +1,6 @@
 import React,{useRef,useEffect}from 'react'
 import Message from './Message'
-import MessageSkeleton from '../../../Components/skeletons/MessageSkeleton'
+import MessageSkeleton from '../../../components/skeletons/MessageSkeleton'
 import useGetMessage from '../../../hooks/useGetMessage'
 
 import useListenMessages from '../../../hooks/useListenMessages'

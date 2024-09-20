@@ -1,4 +1,4 @@
-import Sidebar from '../../Components/chatCommon/sidebar/Sidebar.jsx'
+import Sidebar from '../../components/chatCommon/sidebar/Sidebar.jsx'
 import MessageContainer from './messages/MessageContainer.jsx'
 
 

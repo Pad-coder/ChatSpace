@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom";
 
 import useFollow from '../../hooks/useFollow.jsx'
 
-import Posts from "../../components/common/Posts";
-import ProfileHeaderSkeleton from "../../components/skeletons/ProfileHeaderSkeleton";
+import Posts from "../../components/common/Posts.jsx";
+import ProfileHeaderSkeleton from "../../components/skeletons/ProfileHeaderSkeleton.jsx";
 import EditProfileModal from "./EditProfileModal";
 import {formatMemberSinceDate} from '../../utils/Date/index.js'
 import { POSTS } from "../../utils/MongoDb/dummy.js";
