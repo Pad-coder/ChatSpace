@@ -4,8 +4,7 @@
   "main": "Backend/server.js",
   "scripts": {
     "dev": "nodemon Backend/server.js",
-    "start": "node Backend/server.js",
-    "build": "npm install && npm install --prefix frontend/chatspace && npm run build --prefix frontend/chatspace"
+    "start": "node Backend/server.js"
   },
   "keywords": [],
   "type": "module",
