@@ -12,7 +12,7 @@ import ChatHome from "./pages/chat/ChatHome.jsx"
 import { Toaster } from 'react-hot-toast'
 
 import { useQuery } from "@tanstack/react-query";
-import LoadingSpinner from "./components/common/LoadingSpinner";
+import LoadingSpinner from "./components/common/LoadingSpinner.jsx";
 
 function App() {
 	
