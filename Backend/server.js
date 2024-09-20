@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 
 app.use("/api",Routes)
-app.use(express.static(path.join(__dirname,"/frontend/chatspace/dist")))
+app.use(express.static(path.join(__dirname,"/frontend/dist")))
 
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "frontend","dist", "index.html"));
