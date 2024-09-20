@@ -1,0 +1,8 @@
+{
+	"folders": [],
+	"settings": {
+		"CodeGPT.Autocomplete.enabled": true,
+		"CodeGPT.apiKey": "CodeGPT Plus Beta",
+		"CodeGPT.Autocomplete.maxTokens": 184
+	}
+}
