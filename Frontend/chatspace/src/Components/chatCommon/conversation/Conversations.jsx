@@ -1,26 +1,25 @@
-import React from 'react'
-import Conversation from './Conversation'
+import useConversation from "../../../hooks/useConversation.jsx";
+import Conversation from "./Conversation.jsx";
+import LoadingSpinner from "../../common/LoadingSpinner.jsx";
 
 const Conversations = () => {
-  return (
-    <div className='py-2 flex flex-col overflow-auto'>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-        <Conversation/>
-    </div>
-  )
-}
+  const { conversations, loadingConversations } = useConversation();
 
-export default Conversations
+  return (
+    <div className="py-1 flex flex-col  overflow-auto">
+      {loadingConversations ? <LoadingSpinner /> : null}
+
+      {!loadingConversations &&
+        conversations &&
+        conversations?.map((conversation, idx) => (
+          <Conversation
+            key={conversation._id}
+            conversation={conversation}
+            lastIdx={idx === conversations.length - 1}
+          />
+        ))}
+    </div>
+  );
+};
+
+export default Conversations;

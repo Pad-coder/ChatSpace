@@ -3,16 +3,18 @@ import notificationModel from "../models/notificationModel.js";
 const getAllNotification = async(req,res)=>{
     try{
         const userId = req.user._id
-
+       
         const notifications = await notificationModel.find({to: userId}).populate({
             path: 'from',
             select: "username profile"
         })
-
+        
+           
+        
         await notificationModel.updateMany({to:userId},{read:true});
-
+        
         res.status(200).send(notifications)
-
+        
     }catch(error){
         console.log("Error in Get All Notification Controller", error.message);
         res.status(500).json({message: error.message || "Internal Server Error"});

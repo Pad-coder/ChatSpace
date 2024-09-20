@@ -83,7 +83,8 @@ const login = async(req,res)=>{
             followers:user.followers,
             following:user.following,
             profile:user.profile,
-            coverimg:user.coverimg
+            coverimg:user.coverimg,
+            token
             
         })
     }catch(error){

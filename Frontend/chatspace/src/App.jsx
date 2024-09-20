@@ -15,7 +15,10 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "./components/common/LoadingSpinner";
 
 function App() {
- 
+	
+	 
+
+
   const { data: authUser, isLoading } = useQuery({
 		// we use queryKey to give a unique name to our query and refer to it later
 		queryKey: ["authUser"],
@@ -27,7 +30,7 @@ function App() {
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong");
 				}
-				console.log("authUser is here:", data);
+				// console.log("authUser is here:", data);
 				return data;
 			} catch (error) {
 				throw new Error(error);
@@ -48,16 +51,18 @@ function App() {
   return (
     <div className='flex max-w-6xl mx-auto'>
       {authUser && <Sidebar />}
+	
     <Routes>
-    
+ 
       <Route path="/" element={authUser ? <HomePage /> : <Navigate to='/login'/>} />
       <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to='/'/>} />
       <Route path="/signup" element={!authUser ? <SignupPage /> : <Navigate to='/'/>} />
-	  <Route path="/chathome" element={authUser ? <ChatHome/> : <Navigate to='/login'/>}/>
-      <Route path="/notifications" element={authUser? <NotificationPage /> : <Navigate to='/login'/>} />
+	  <Route path="/message" element={authUser ? <ChatHome /> : <Navigate to='/login'/>}/>
+      <Route path="/notifications" element={authUser ? <NotificationPage /> : <Navigate to='/login'/>} />
       <Route path="/profile/:username" element={authUser ? <ProfilePage /> : <Navigate to='/login'/>} />
-
+	
     </Routes>
+
     {authUser && <RightPanel />}
     <Toaster />
     </div>
@@ -65,3 +70,4 @@ function App() {
 }
 
 export default App
+

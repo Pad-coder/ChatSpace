@@ -8,6 +8,7 @@ import { FaHeart } from "react-icons/fa6";
 
 const NotificationPage = () => {
 	const queryClient = useQueryClient()
+	const {data: authUser} = useQuery({queryKey: ['authUser']})
 	const {data:notifications,isLoading} = useQuery({
 		queryKey: ['notifications'],
 		queryFn: async () => {
@@ -43,7 +44,7 @@ const NotificationPage = () => {
 			toast.error(error.message)
 		}
 	})
-	const {data: authUser} = useQuery({queryKey: ['authUser']})
+
 	return (
 		<>
 			<div className='flex-[4_4_0] border-l border-r border-gray-700 min-h-screen'>
@@ -69,7 +70,7 @@ const NotificationPage = () => {
 					</div>
 				)}
 				{notifications?.length === 0 && <div className='text-center p-4 font-bold'>No notifications 🤔</div>}
-				{notifications?.from !== authUser &&  notifications?.map((notification) => (
+				{notifications?.to !== authUser._id &&  notifications?.map((notification) => (
 					<div className='border-b border-gray-700' key={notification._id}>
 						<div className='flex gap-2 p-4'>
 							{notification.type === "follow" && <FaUser className='w-7 h-7 text-primary' />}

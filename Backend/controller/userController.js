@@ -160,7 +160,10 @@ const getUserForSidebar = async(req,res)=>{
         res.status(200).json(fillteredUsers)
         
     } catch (error) {
-        
+        console.log("Error in getUserForSidebar controller", error.message);
+        res.status(500).send({
+            message: error.message || 'Internal Server Error'
+        })
     }
 }
 

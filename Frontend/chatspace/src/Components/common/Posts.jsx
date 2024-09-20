@@ -3,7 +3,7 @@ import PostSkeleton from "../skeletons/PostSkeleton.jsx";
 import {useQuery} from '@tanstack/react-query'
 import { useEffect } from "react";
 const Posts = ({feedType,username,userId}) => {
-	const isLoading = false;
+	
 
 	const getPostEndPoint =()=>{
 		switch (feedType){
@@ -22,7 +22,7 @@ const Posts = ({feedType,username,userId}) => {
 
 	const POST_ENDPOINT = getPostEndPoint();
 
-	const {data:posts, isPending, refetch, isRefetching} = useQuery({
+	const {data:posts, isLoading , refetch, isRefetching} = useQuery({
 		queryKey:["posts"],
 		queryFn: async ()=>{
 			try {

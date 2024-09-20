@@ -5,7 +5,7 @@ import messageController from '../controller/messageController.js'
 const Routes = Router()
 
 
-Routes.get('/:id',protectRoute,messageController.getMessages)
+Routes.get('/get/:id',protectRoute,messageController.getMessages)
 Routes.post('/send/:id',protectRoute,messageController.sendMessage)
 
 

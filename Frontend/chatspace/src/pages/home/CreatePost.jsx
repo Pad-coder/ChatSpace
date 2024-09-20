@@ -11,8 +11,6 @@ const CreatePost = () => {
 
 	const imgRef = useRef(null);
 
-	
-
 	const {data: authUser} = useQuery({queryKey: ['authUser']})
 	const queryClient = useQueryClient();
 

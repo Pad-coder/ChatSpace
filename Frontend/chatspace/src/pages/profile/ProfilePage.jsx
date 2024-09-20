@@ -32,6 +32,7 @@ const ProfilePage = () => {
 	const {username} = useParams()
 	const {follow,isPending}=useFollow()
 	const {data:authUser} = useQuery({queryKey:["authUser"]})
+	const {data:posts} = useQuery({queryKey:["posts"]})
 
 
 	const {data:user,isLoading,refetch,isRefetching} = useQuery({
@@ -88,7 +89,7 @@ const ProfilePage = () => {
 								</Link>
 								<div className='flex flex-col'>
 									<p className='font-bold text-lg'>{user?.username}</p>
-									<span className='text-sm text-slate-500'>{POSTS?.length} posts</span>
+									<span className='text-sm text-slate-500'>{posts?.length} posts</span>
 								</div>
 							</div>
 							{/* COVER IMG */}

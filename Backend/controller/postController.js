@@ -124,7 +124,7 @@ const likeUnlikePost = async(req,res)=>{
             await userModel.updateOne({_id:userId},{$push:{likedPosts: postId}})
             await post.save();
 
-            if(userId !== post.user){
+           
             const notification = new notificationModel({
                 from: userId,
                 to: post.user,
@@ -134,7 +134,7 @@ const likeUnlikePost = async(req,res)=>{
 
             const updatedLikes = post.likes
             res.status(200).json(updatedLikes)
-        }
+        
         }
 
     }catch(error){

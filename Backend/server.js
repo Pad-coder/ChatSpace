@@ -3,8 +3,8 @@ import 'dotenv/config.js'
 import Routes from './routes/index.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors';
+import { app,server } from './socket/socket.js';
 
-const app = express()
 const port = process.env.PORT || 8000
 app.use(cors());
 
@@ -14,4 +14,4 @@ app.use(cookieParser())
 
 app.use("/api",Routes)
 
-app.listen(port,()=>{console.log(`Server is running on port ${port}`)})
+server.listen(port,()=>{console.log(`Server is running on port ${port}`)})
