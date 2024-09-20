@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy:{
       "/api":{
-        target: "http://localhost:8000",
+        target: "https://chatspace-backend-b5gh.onrender.com",
         changeOrigin: true,
       }
     }
