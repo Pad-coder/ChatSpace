@@ -1,8 +1,9 @@
-# React + Vite
+# Chatspace (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Technologies
+Frontend: React, TanStack React Query (for async data fetching, State Management),Zustand for Message State Management, Socket.IO (for real-time messaging)
+Backend: Node.js, Express, MongoDB (with Mongoose ORM), Socket.IO (for real-time messaging), JSON Web Tokens (JWT) for authentication
+Authentication: Password hashing with bcrypt
+Storage: MongoDB for data persistence
+Real-time Communication: Socket.IO for messaging
+File Upload: Cloudinary (for handling image/video uploads)
