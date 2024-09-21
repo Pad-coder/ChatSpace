@@ -10,12 +10,20 @@ This project is built with separate frontend and backend architectures,implement
 
 Features
 User authentication (Login, Sign Up, Logout)
+
 Profile management (Create, Update, Delete Profile)
+
 Post creation (Text, Image, and Video uploads)
+
 Post interactions (Like, Comment, Delete Post)
+
 Real-time notifications for likes and comments
+
 Real-time messaging using Socket.IO
+
 Password hashing for secure authentication
+
 View user profiles
+
 Beginner-level project for learning full-stack development
  
