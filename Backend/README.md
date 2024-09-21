@@ -17,3 +17,40 @@
 **Data Storage:** MongoDB with Mongoose for schema-based document storage.
 
 **Secure Passwords:** Passwords are hashed using bcrypt before saving to the database.
+
+# API Endpoints
+
+# Auth
+<b>GET</b> /api/auth/me : Get auth user
+
+<b>POST</b> /api/auth/signup : Signin user
+
+<b>POST</b> /api/auth/login : Login user
+
+<b>POST</b>/api/auth/logout : Logout user
+
+# User
+
+<b>GET</b> /api/user/profile/:username : Get user profile
+
+<b>GET</b> /api/user/suggested : Get suggested user
+
+<b>GET</b> /api/user/users : Get user in chat conversation
+ 
+<b>POST</b> /api/user/follow/:id : For follow and unfollow user
+
+<b>POST</b> /api/user/update : Update user
+
+# POST
+
+<b>GET</b> /api/post/allpost : Get all post
+
+<b>GET</b> /api/post/liked/:id : Get liked post
+
+<b>GET</b> /api/post/followingPosts : Get following post
+
+<b>GET</b> /api/post/user/:username : Get user posts
+
+<b>post</b> /api/post/create : Create post
+
+<b>post</b> /api/post//like/:id : Like and unlike post
