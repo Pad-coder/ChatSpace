@@ -2,7 +2,7 @@
 
 # Backend Description
 
-**Key Features**
+# **Key Features**
 
 **User Authentication:** Users can sign up, log in, and log out securely. JWT is used for session management, and passwords are hashed using bcrypt.
 
