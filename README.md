@@ -8,7 +8,7 @@ Chatspace is a beginner-level full-stack chat application with real-time messagi
 
 This project is built with separate frontend and backend architectures,implementing essential social media and chat features.
 
-**Sometimes loading takes long time (lazy loading)**
+* **Sometimes loading takes long time (lazy loading)** *
 
 # Features:
 User authentication (Login, Sign Up, Logout)
