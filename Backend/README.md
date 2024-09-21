@@ -51,6 +51,22 @@
 
 <b>GET</b> /api/post/user/:username : Get user posts
 
-<b>post</b> /api/post/create : Create post
+<b>Post</b> /api/post/create : Create post
 
-<b>post</b> /api/post//like/:id : Like and unlike post
+<b>Post</b> /api/post/like/:id : Like and unlike post
+
+<b>POST</b> /api/post/comment/:id : Comment post
+
+<b>POST</b> /api/post/:id : Delete post
+
+# Notification
+
+<b>GET</b> /api/notification/ : Get notification 
+
+<b>DELETE</b> /api/notification/ : Delete notification
+
+# Message
+
+<b>GET</b> /api/message/get/:id : Get messages
+
+<b>POST</b> /api/message/send/:id : Send message
