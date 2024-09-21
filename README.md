@@ -4,11 +4,9 @@ Click Frontend folder to see <a href= "https://github.com/Pad-coder/Chatspace/tr
 
 Click Backend folder to see <a href= "https://github.com/Pad-coder/Chatspace/tree/master/Backend"> Backend code </a> 
 
-Chatspace is a beginner-level full-stack chat application with real-time messaging, user authentication,
+Chatspace is a beginner-level full-stack chat application with real-time messaging, user authentication,profile management, and post interactions.
 
-profile management, and post interactions. This project is built with separate frontend and backend architectures,
-
-implementing essential social media and chat features.
+This project is built with separate frontend and backend architectures,implementing essential social media and chat features.
 
 Features
 User authentication (Login, Sign Up, Logout)
