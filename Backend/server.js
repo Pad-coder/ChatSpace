@@ -16,5 +16,10 @@ app.use(cookieParser())
 
 app.use("/api",Routes)
 
+app.use(express.static(path.join(__dirname, "/chatspace-Client/dist")));
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "chatspace-Client", "dist", "index.html"));
+});
 
 server.listen(port,()=>{console.log(`Server is running on port ${port}`)})
