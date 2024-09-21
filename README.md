@@ -1,3 +1,4 @@
+<b>Sometimes loading takes long time (lazy loading)</b>
 # Chatspace Application (Capstone Project)
 
 # Click Frontend folder to see <a href= "https://github.com/Pad-coder/Chatspace/tree/master/Frontend" > Frontend code </a>
@@ -8,7 +9,7 @@ Chatspace is a beginner-level full-stack chat application with real-time messagi
 
 This project is built with separate frontend and backend architectures,implementing essential social media and chat features.
 
-<b>Sometimes loading takes long time (lazy loading)</b>
+
 
 # Features:
 User authentication (Login, Sign Up, Logout)
