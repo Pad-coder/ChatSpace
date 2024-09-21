@@ -18,7 +18,7 @@
 
 **Secure Passwords:** Passwords are hashed using bcrypt before saving to the database.
 
-# API Endpoints
+# API Endpoints :
 
 # Auth
 <b>GET</b> /api/auth/me : Get auth user
