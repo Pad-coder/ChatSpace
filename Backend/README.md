@@ -10,7 +10,7 @@
 
 **Post Handling:** Supports creating, deleting, and editing posts, with file uploads for text and images.
 
-**Story:** Update and share status stories with text, image or video file. (Yet to be updated)
+**Story:** Update and share status stories with text, image or video file. (**Yet to be updated**)
 
 **Real-time Messaging:** Implemented using Socket.IO for real-time one-to-one messaging.
 
