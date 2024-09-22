@@ -8,7 +8,9 @@
 
 **Profile Management:** CRUD operations on user profiles, allowing users to create, edit, or delete their profiles.
 
-**Post Handling:** Supports creating, deleting, and editing posts, with file uploads for images and videos.
+**Post Handling:** Supports creating, deleting, and editing posts, with file uploads for text and images.
+
+**Story:** Update and share status stories with text, image or video file.
 
 **Real-time Messaging:** Implemented using Socket.IO for real-time one-to-one messaging.
 
@@ -58,6 +60,15 @@
 <b>POST</b> /api/post/comment/:id : Comment post
 
 <b>POST</b> /api/post/:id : Delete post
+
+
+# Story (Yet to be updated)
+
+<b>POST</b> /api/story/upload : Upload story
+
+<b>GET</b> /api/story/all : Get all following stories
+
+<b>DELETE</b> /api/story/:id : Delete story
 
 # Notification
 
