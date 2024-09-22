@@ -10,5 +10,4 @@ Routes.post('/login',authController.login)
 Routes.post('/logout',authController.logout)
 
 
-
 export default Routes

@@ -1,20 +1,19 @@
 import mongoose from "../MongoDb/connectDb.js";
 
-const storySchema = mongoose.Schema({
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+const storySchema = mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
     },
-    text:{
-        type: String,
-    },
-    img:{
-        type: String,   
-    }
-},{
-    timestamp: true,
-    collection: "Story"
-})
+    mediaUrl: { type: String, required: true },
+    mediaType: { type: String, enum: ["image", "video"], required: true },
+    createdAt: { type: Date, default: Date.now, expires: "24h" }, // Story expires after 24 hours
+  },
+  {
+    collection: "Story",
+  }
+);
 
-export default new mongoose.model('Story',storySchema)
+export default new mongoose.model("Story", storySchema);
