@@ -17,11 +17,11 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <BrowserRouter>
-  <SocketContextProvider>
   <QueryClientProvider client={queryClient}>
+  <SocketContextProvider>
    <App/>
-  </QueryClientProvider>
   </SocketContextProvider>
+  </QueryClientProvider>
   </BrowserRouter>
   </StrictMode>,
 )
