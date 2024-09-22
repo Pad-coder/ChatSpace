@@ -54,12 +54,12 @@ function App() {
 	
     <Routes>
  
-      <Route path="/" element={authUser ? <HomePage /> : <Navigate to='/login'/>} />
+      <Route path="/" element={authUser ? <HomePage /> : <Navigate to={'/login'}/>} />
       <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to='/'/>} />
       <Route path="/signup" element={!authUser ? <SignupPage /> : <Navigate to='/'/>} />
-	  <Route path="/message" element={authUser ? <ChatHome /> : <Navigate to='/login'/>}/>
-      <Route path="/notifications" element={authUser ? <NotificationPage /> : <Navigate to='/login'/>} />
-      <Route path="/profile/:username" element={authUser ? <ProfilePage /> : <Navigate to='/login'/>} />
+	  <Route path="/message" element={authUser ? <ChatHome /> : <Navigate to={'/login'}/>}/>
+      <Route path="/notifications" element={authUser ? <NotificationPage /> : <Navigate to={'/login'}/>} />
+      <Route path="/profile/:username" element={authUser ? <ProfilePage /> : <Navigate to={'/login'}/>} />
 	
     </Routes>
 

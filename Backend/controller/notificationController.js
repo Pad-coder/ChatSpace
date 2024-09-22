@@ -9,7 +9,9 @@ const getAllNotification = async(req,res)=>{
             select: "username profile"
         })
         
-           
+        if(userId===notificationModel.from){
+            res.status(200).json([])
+        }
         
         await notificationModel.updateMany({to:userId},{read:true});
         

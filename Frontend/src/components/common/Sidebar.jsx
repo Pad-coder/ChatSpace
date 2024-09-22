@@ -3,16 +3,16 @@ import { MdHomeFilled } from "react-icons/md";
 import { MdMessage } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { TiSocialInstagram } from "react-icons/ti";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+
 
 
 const Sidebar = () => {
   const queryClient = useQueryClient();
-  const navigate = useNavigate();
+  
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
   const { mutate: logout } = useMutation({
     mutationFn: async () => {
