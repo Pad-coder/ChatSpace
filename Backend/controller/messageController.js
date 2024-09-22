@@ -1,6 +1,6 @@
 import messageModel from "../models/messageModel.js";
 import conversationModel from "../models/conversationModel.js";
-import { getReceiverSocketId } from "../socket/socket.js";
+import { getReceiverSocketId,io } from "../socket/socket.js";
 
 const sendMessage = async(req,res)=>{
     try {
@@ -39,7 +39,7 @@ const sendMessage = async(req,res)=>{
         res.status(201).json(newMessage)
         
     } catch (error) {
-        console.log("Error in Send Message Controller", error)
+        console.log("Error in Send Message Controller", error.message)
         res.status(500).send({
             error:"Internal Server Error"
         })
@@ -62,7 +62,7 @@ const getMessages = async(req,res)=>{
         res.status(200).json(messages);
 
     } catch (error) {
-        console.log("Error in Get Messages Controller", error)
+        console.log("Error in Get Messages Controller", error.message)
         res.status(500).send({
             error:"Internal Server Error"
         })
