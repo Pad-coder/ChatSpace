@@ -33,11 +33,7 @@ const Sidebar = () => {
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
 
       //toast.success("LoggedOut")
-      useEffect(()=>{
-      if(logout){
-        navigate("/login")
-      }
-      },[authUser])
+     
     },
     onError: () => {
       toast.error("Logout failed");
