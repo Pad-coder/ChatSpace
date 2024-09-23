@@ -1,4 +1,5 @@
 **IMPORTANT** : <b>Sometimes loading takes long time (lazy loading)</b>
+**Story feature will be update soon**
 # Chatspace Application (Capstone Project)
 
 # APP Link : https://chatspace-krbm.onrender.com
