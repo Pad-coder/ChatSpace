@@ -3,8 +3,6 @@
 **Story feature will be update soon**
 # Chatspace Application (Capstone Project)
 
-# APP Link : https://chatspace-krbm.onrender.com
-
 # Click Frontend folder to see <a href= "https://github.com/Pad-coder/Chatspace/tree/master/Frontend" > Frontend code </a>
 
 # Click Backend folder to see <a href= "https://github.com/Pad-coder/Chatspace/tree/master/Backend"> Backend code </a>
